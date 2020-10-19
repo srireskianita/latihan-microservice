@@ -5,9 +5,6 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/auth/config"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/auth/database"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/auth/handler"
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 	"gorm.io/driver/mysql"
@@ -23,10 +20,6 @@ func main() {
 	db, err := initDB(cfg.Database)
 	authHandler := handler.Auth{Db: db}
 	router := mux.NewRouter()
-
-	router.Handle("/auth/validate", http.HandlerFunc(authHandler.ValidateAuth))
-	router.Handle("/auth/signup", http.HandlerFunc(authHandler.SignUp))
-	router.Handle("/auth/login", http.HandlerFunc(authHandler.Login))
 
 	fmt.Printf("Auth service listen on :8001")
 	log.Panic(http.ListenAndServe(":8001", router))

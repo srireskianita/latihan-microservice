@@ -2,14 +2,12 @@ package handler
 
 import (
 	"encoding/json"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/config"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/entity"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/utils"
 
-	"github.com/gorilla/context"
 	"io/ioutil"
 	"log"
 	"net/http"
+
+	"github.com/gorilla/context"
 )
 
 type AuthMiddleware struct {
@@ -27,7 +25,7 @@ func (auth *AuthMiddleware) ValidateAuth(nextHandler http.HandlerFunc) http.Hand
 		request.Header = r.Header
 		authResponse, err := http.DefaultClient.Do(request)
 		if err != nil {
-			log.Println("ERROR DISINI 1",auth.AuthService.Host)
+			log.Println("ERROR DISINI 1", auth.AuthService.Host)
 			utils.WrapAPIError(w, r, "validate auth failed : "+err.Error(), http.StatusInternalServerError)
 			return
 		}
@@ -49,7 +47,7 @@ func (auth *AuthMiddleware) ValidateAuth(nextHandler http.HandlerFunc) http.Hand
 			return
 		}
 
-		context.Set(r,"user",authResult.Data.Username)
+		context.Set(r, "user", authResult.Data.Username)
 		nextHandler(w, r)
 	}
 }

@@ -2,16 +2,15 @@ package main
 
 import (
 	"fmt"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/config"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/database"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/handler"
+
 	"github.com/gorilla/mux"
 	"github.com/spf13/viper"
 
-	"gorm.io/driver/mysql"
-	"gorm.io/gorm"
 	"log"
 	"net/http"
+
+	"gorm.io/driver/mysql"
+	"gorm.io/gorm"
 )
 
 func main() {

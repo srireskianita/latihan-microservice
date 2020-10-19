@@ -6,8 +6,6 @@ import (
 	"io/ioutil"
 	"net/http"
 
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/service-product/database"
-	"github.com/FadhlanHawali/Digitalent-Kominfo_Pendalaman-Rest-API/utils"
 	"github.com/gorilla/context"
 	"gorm.io/gorm"
 )
